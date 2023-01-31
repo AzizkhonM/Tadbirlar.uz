@@ -1,0 +1,256 @@
+<div class="container">
+
+    <form action="/adding_ad" method="POST">
+    <h1 style="margin-top: 100px; margin-bottom: 35px">Eʼlon berish</h1>
+        <div style="border: 1px solid rgb(204, 204, 204); height:auto; padding-top: 50px; padding-bottom: 50px; padding-right: 45px; padding-left: 45px"
+            class="container">
+            <h4>Vaqt va yoʻnalishni tanlang</h4>
+
+            <p style="margin-top: 50px; color: rgb(66, 66, 66)">Oʻtkaziladigan sanani kiriting</p>
+
+            <input required
+                style="margin-right: 100px; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                id="date" name="date" type="date">
+            <input required type="time" name="time" id="time"
+                style="margin-right: 100px; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; background-color: rgb(234, 234, 234); border: none; border-radius: 5px">
+
+
+            <div class="row">
+                <div class="col-6">
+                    <p style="margin-top: 50px; color: rgb(66, 66, 66)">Yoʻnalishni belgilang</p>
+                    <select required oninput="categoryFunc(this.value)"
+                        style="margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        name="category" id="category">
+                        <option disabled selected value> -- yoʻnalishni tanlang -- </option>
+                        <option value="Axborot texnologiyalari (AT)">Axborot texnologiyalari (AT)</option>
+                        <option value="Kasb-hunar">Kasb-hunar</option>
+                    </select>
+                </div>
+
+                <div class="col-6">
+                    <p style="margin-top: 50px; color: rgb(66, 66, 66)">Ichki yoʻnalishni belgilang</p>
+                    <select required
+                        style="margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        name="subcategory" id="subcategory"></select>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-6">
+                    <p style="margin-top: 50px; color: rgb(66, 66, 66)">Tadbir turi</p>
+                    <select required name="type" id="type"
+                        style="margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px">
+                        <option value="Online">Online</option>
+                        <option value="Offline">Offline</option>
+                    </select>
+                </div>
+                <div class="col-6">
+                    <p style="margin-top: 50px; color: rgb(66, 66, 66)">Havola kiriting</p>
+                    <input required id="link"
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        type="url" name="link" id="link" placeholder="Havola kiriting">
+                </div>
+            </div>
+        </div>
+
+        <h3 style="margin-top: 80px; margin-bottom: 35px">Tashkilotchi</h3>
+
+        <div style="border: 1px solid rgb(204, 204, 204); height:auto; padding-top: 50px; padding-bottom: 50px; padding-right: 45px; padding-left: 45px" class="container">
+            <div class="row">
+                <div class="col-6">
+                <p style="color: rgb(66, 66, 66)">Yuridik nomi</p>
+                <input required
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        type="text" name="yuridik" id="yuridik">
+                </div>
+                <div class="col-6">
+                <p style="color: rgb(66, 66, 66)">Tashkilotchining ism-sharifi</p>
+                <input required
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        type="text" name="fish" id="fish">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                <p style="margin-top: 50px; color: rgb(66, 66, 66)">Tashkilotchining telefon raqami</p>
+                <input required
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        type="text" value="+998" name="tel_num" id="tel_num">
+                {{#if isFirstTelFalse}}<p style="margin-top: 10px; color: rgb(129, 49, 49)">Telefon raqami notoʻgʻri</p>{{/if}}
+                </div>
+                <div class="col-6">
+                <p style="margin-top: 50px; color: rgb(66, 66, 66)">Tashkilotchining qoʻshimcha telefon raqami</p>
+                <input required
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px"
+                        type="text" value="+998" name="extra_tel_num" id="extra_tel_num">
+                {{#if isSecondTelFalse}}<p style="margin-top: 10px; color: rgb(129, 49, 49)">Telefon raqami notoʻgʻri</p>{{/if}}
+                </div>
+            </div>
+        </div>
+
+        <div style="border: 1px solid rgb(204, 204, 204); height:auto; padding-top: 50px; padding-bottom: 50px; padding-right: 45px; padding-left: 45px; margin-top: 50px">
+            <div class="row">
+                <div class="col-12">
+                <p style="color: rgb(66, 66, 66)">Mavzu sarlavhasi</p>
+                <input required id="idTitle"
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: white; border: none; border-radius: 5px; height: 100px; font-size:300%"
+                        type="text" name="title" id="title" placeholder="MAVZU SARLAVHASI">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                <p style="margin-top: 50px; color: rgb(66, 66, 66)">Qisqacha tavsif</p>
+                <input required id="idDesc"
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px;"
+                        type="text" name="description" id="description" placeholder="Qisqacha tavsif">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                <p style="margin-top: 50px; color: rgb(66, 66, 66)">Tasvir havolasi</p>
+                <input required
+                        style="color: black; margin-top: 10px; padding-top: 10px; padding-bottom: 10px; padding-left: 15px; padding-right: 15px; width: 100%; background-color: rgb(234, 234, 234); border: none; border-radius: 5px;"
+                        type="url" name="image" id="image">
+                </div>
+            </div>
+        </div>
+        <button style="margin-top: 50px; margin-bottom: 50px; padding-top: 30px; padding-bottom: 30px; padding-right: 55px; padding-left: 55px" type="submit" class="btn btn-primary">Eʼlonni yuborish</button>
+    </form>
+
+</div>
+
+
+<script>
+
+    function categoryFunc(a) {
+        if (a == "Axborot texnologiyalari (AT)") {
+            try {
+                let a = document.querySelector("#option6")
+                a.remove()
+                let b = document.querySelector("#option7")
+                b.remove()
+
+                let option1 = document.createElement("option")
+                option1.setAttribute("id", "option1")
+                option1.setAttribute("value", "Frontend Developer")
+                option1.textContent = "Frontend Developer"
+
+                let option2 = document.createElement("option")
+                option2.setAttribute("id", "option2")
+                option2.setAttribute("value", "Backend Developer")
+                option2.textContent = "Backend Developer"
+
+                let option3 = document.createElement("option")
+                option3.setAttribute("id", "option3")
+                option3.setAttribute("value", "UX/UI Developer")
+                option3.textContent = "UX/UI Developer"
+
+                let option4 = document.createElement("option")
+                option4.setAttribute("id", "option4")
+                option4.setAttribute("value", "Grafik Dizayner")
+                option4.textContent = "Grafik Dizayner"
+
+                let option5 = document.createElement("option")
+                option5.setAttribute("id", "option5")
+                option5.setAttribute("value", "Moushn Dizayner")
+                option5.textContent = "Moushn Dizayner"
+
+                subcategory.append(option1, option2, option3, option4, option5)
+            }
+
+            catch {
+                let option1 = document.createElement("option")
+                option1.setAttribute("id", "option1")
+                option1.setAttribute("value", "Frontend Developer")
+                option1.textContent = "Frontend Developer"
+
+                let option2 = document.createElement("option")
+                option2.setAttribute("id", "option2")
+                option2.setAttribute("value", "Backend Developer")
+                option2.textContent = "Backend Developer"
+
+                let option3 = document.createElement("option")
+                option3.setAttribute("id", "option3")
+                option3.setAttribute("value", "UX/UI Developer")
+                option3.textContent = "UX/UI Developer"
+
+                let option4 = document.createElement("option")
+                option4.setAttribute("id", "option4")
+                option4.setAttribute("value", "Grafik Dizayner")
+                option4.textContent = "Grafik Dizayner"
+
+                let option5 = document.createElement("option")
+                option5.setAttribute("id", "option5")
+                option5.setAttribute("value", "Moushn Dizayner")
+                option5.textContent = "Moushn Dizayner"
+
+                subcategory.append(option1, option2, option3, option4, option5)
+            }
+
+            console.log(time.value, date.value, type.value, category, subcategory)
+        } else if (a == "Kasb-hunar") {
+
+            try {
+                let a = document.querySelector("#option1")
+                a.remove()
+                let b = document.querySelector("#option2")
+                b.remove()
+                let c = document.querySelector("#option3")
+                c.remove()
+                let d = document.querySelector("#option4")
+                d.remove()
+                let e = document.querySelector("#option5")
+                e.remove()
+
+                let option6 = document.createElement("option")
+                option6.setAttribute("id", "option6")
+                option6.setAttribute("value", "Tadbirkor")
+                option6.textContent = "Tadbirkor"
+
+                let option7 = document.createElement("option")
+                option7.setAttribute("id", "option7")
+                option7.setAttribute("value", "Hunarmand")
+                option7.textContent = "Hunarmand"
+
+                subcategory.append(option6, option7)
+            }
+
+            catch {
+                let option6 = document.createElement("option")
+                option6.setAttribute("id", "option6")
+                option6.setAttribute("value", "Tadbirkor")
+                option6.textContent = "Tadbirkor"
+                
+                let option7 = document.createElement("option")
+                option7.setAttribute("id", "option7")
+                option7.setAttribute("value", "Hunarmand")
+                option7.textContent = "Hunarmand"
+
+                subcategory.append(option6, option7)
+            }
+
+            console.log(subcategory)
+
+        }
+    }
+
+</script>
+
+
+<style>
+    #link::placeholder {
+        color: grey;
+    }
+
+
+    #idDesc::placeholder {
+        color: grey;
+    }
+
+    #idTitle::placeholder {
+        color: grey;
+    }
+    
+
+</style>

@@ -1,0 +1,52 @@
+<h1 class="text-center mt-5 mb-4">Chop etilishi kutilayotgan eʼlonlar</h1>
+
+    {{#if ads.length}}
+    {{#each ads}}
+    <div class="divs" style="width:85%; border-bottom: 1px solid black; padding: 20px">
+        <div class="row">
+            <div class="col-8"><b style="font-size: 300%">{{title}}</b></div>
+            <div class="col-2"><button onclick="location.href=`/cancel/{{id}}`" id="b1">Bekor qilish</button></div>
+            <div class="col-2"><button onclick="location.href=`/confirm/{{id}}`" id="b2">Tasdiqlash</button></div>
+        </div>
+        <div class="row">
+            <div class="col-2">{{fish}}</div>
+            <div class="col-2">{{tel_num}}</div>
+            <div class="col-1">{{date}}</div>
+            <div class="col-1">{{time}}</div>
+            <div class="col-2">{{subcategory}}</div>
+            <div class="col-4"></div>
+        </div>
+    </div>
+    {{/each}}
+    {{/if}}
+
+<style>
+
+    .divs:hover{
+        background-color: rgb(233, 244, 247);
+    }
+
+    button{
+        border: none;
+        border-radius: 5px;
+        padding-left: 15px;
+        padding-right: 15px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+    }
+
+    #b1{
+        background-color: rgb(215, 215, 215);
+        color: rgb(42, 42, 42);
+    }
+
+    #b2{
+        background-color: dodgerblue;
+        color: white;
+    }
+
+    div{
+        margin: auto;
+    }
+
+</style>

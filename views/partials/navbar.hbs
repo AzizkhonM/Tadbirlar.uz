@@ -1,0 +1,32 @@
+{{#if isLogin}}
+      <div class="main">
+        <div class="container">
+          <div class="row" style="padding-top: 30px; padding-bottom: 30px">
+            <div class="col-2" style="text-align: center; margin:auto"><a href="/home"><h3 style="margin: auto; color: white">Tadbirlar.uz</h3></a></div>
+            <div id="search" class="col-3" style="text-align: center; margin:auto"><input style="background-color: transparent; color: white; border-radius: 5px; border: 1px solid white; padding-top: 10px; padding-bottom: 10px; padding-left: 20px; padding-right: 20px" type="text" name="" id="" placeholder="Qidiruv"></div>
+            <div class="col-2" style="text-align: center; margin:auto"><a href="/about_us" style="margin:auto;"><h5>Biz haqimizda</h5></a></div>
+            <div class="col-2" style="text-align: center; margin:auto"><a href="#" style="margin:auto;"><h5>Savol-javoblar</h5></a></div>
+            <div class="col-1" style="text-align: center; margin:auto"><a href="/admin" style="margin:auto;"><h5>Admin</h5></a></div>
+            <div class="col-2" style="text-align: center; margin:auto"><button onclick="location.href='/add_ad';" style="color: white; margin: auto; border: none; background-color: #FFA500; padding-top: 5px; padding-bottom: 5px; padding-left: 15px; padding-right: 15px; border-radius: 3px"><i style="color: white;" class="fa fa-plus"></i>  <b>E'lon berish</b></button></div>
+          </div>
+        </div>
+      </div>
+{{/if}}
+
+<style>
+  .main {
+    background-image: repeating-linear-gradient(to right, rgb(2, 117, 216), rgb(54, 104, 220), rgb(2, 117, 216));
+  }
+
+  ::placeholder {
+    color: white;
+  }
+
+  li {
+    margin: auto;
+  }
+
+  h5 {
+    color: white;
+  }
+</style>
