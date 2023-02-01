@@ -14,6 +14,8 @@ app.listen(port, () => {
 
 
 require('dotenv').config()
+const swaggerJsDoc = require('swagger-jsdoc')
+const swaggerUI = require('swagger-ui-express')
 const express = require('express')
 const exphbs = require('express-handlebars')/* 
 const carsRouter = require('./router/cars.router')
@@ -26,7 +28,26 @@ const middleware = require("./middleware/variable")
 const isLogged = require("./middleware/isLoginMiddleware") */
 
 
+const options = {
+    definition: {
+     openapi:"3.0.0",
+     info: {
+         title: "Tadbirlar.uz Project",
+         version: "1.0.0",
+         description: "Tadbirlar.uz - my project's API Information"
+        },
+        servers: [
+            {
+                url: "http://localhost:9020"
+            },
+        ],
+    },
+    apis: ["./routes/*.js"]
+ }
+const swaggerDocs = swaggerJsDoc(options);
 const app = express()
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
+app.use(cors())
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
