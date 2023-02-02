@@ -11,7 +11,7 @@ router
 
 router
         .get("/add_ad", PagesController.ADD_PAGE)
-        .post("/adding_ad", PagesController.ADDING_PAGE)
+        .post("/adding_ad",  PagesController.ADDING_PAGE)
 
 router
         .get("/about_us", PagesController.ABOUT_US)

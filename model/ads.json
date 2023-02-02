@@ -1,3 +1,19 @@
 [
-    
+    {
+        "id": 1,
+        "date": "09/02/2023",
+        "time": "17:53",
+        "category": "Axborot texnologiyalari (AT)",
+        "subcategory": "Frontend Developer",
+        "type": "Online",
+        "link": "http://localhost:9020/add_ad",
+        "yuridik": "Najot Ta'lim",
+        "fish": "Azizxon Muzaffarov",
+        "tel_num": "+998977281104",
+        "extra_tel_num": "+998972254420",
+        "title": "QA",
+        "description": "QA haqida",
+        "upload_image": "https://pbs.twimg.com/profile_images/573110041751920640/KE6WvQfJ.jpeg",
+        "invisible": true
+    }
 ]

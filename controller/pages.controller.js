@@ -1,4 +1,6 @@
 const { read_file, write_file } = require("../fs/fs_api")
+const path = require("path")
+const upload = require("express-fileupload")
 
 
 const Auth = {
@@ -37,6 +39,7 @@ const Auth = {
     ADDING_PAGE: (req, res) => {
 
         let things = req.body
+        console.log(things);
         let ads = read_file("ads.json")
         let arr = []
         if(things.tel_num.length != 13){
@@ -55,7 +58,7 @@ const Auth = {
         things.date = Sana[8] + Sana[9] + "/" + Sana[5] + Sana[6] + "/" + Sana[0] + Sana[1] + Sana[2] + Sana[3]
         console.log(things.date);
         things.title = things.title.toUpperCase()
-        if(ads.length == 0){
+        if(ads == []){
             ads.push({id: 1, ...things})
         } else{
             for(let i of ads){
