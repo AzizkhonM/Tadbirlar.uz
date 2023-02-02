@@ -47,7 +47,6 @@ const options = {
 const swaggerDocs = swaggerJsDoc(options);
 const app = express()
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(swaggerDocs));
-app.use(cors())
 
 const hbs = exphbs.create({
     defaultLayout: 'main',
